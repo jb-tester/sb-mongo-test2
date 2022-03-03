@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document//(collection = "author")
 public class Author {
     @Id
+    @Field
     ObjectId id;
     @Field
     String firstName;

@@ -4,6 +4,7 @@ import com.mytests.spring.sbmongotest2.model.Author;
 import com.mytests.spring.sbmongotest2.model.Book;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
@@ -16,4 +17,7 @@ import java.util.List;
 public interface AuthorRepository extends MongoRepository<Author, ObjectId> {
 
     List<Author> findAll();
+
+    @Query("{firstName: ?0,lastName: ?1}")
+    List<Author> selectByName(String fname, String lname);
 }
